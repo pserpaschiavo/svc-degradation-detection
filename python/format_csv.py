@@ -1,7 +1,7 @@
 import csv
 
 # Nome do arquivo de entrada
-input_file = './datasets/unloaded-res.txt'
+input_file = './datasets/loaded-res.txt'
 
 # Ler os dados do arquivo .txt
 with open(input_file, 'r') as file:
@@ -18,7 +18,7 @@ for line in data:
     processed_data.append(line.split())
 
 # Salvar em um arquivo CSV
-with open('./datasets/unloaded-res.csv', 'w', newline='') as csvfile:
+with open('./datasets/loaded-res.csv', 'w', newline='') as csvfile:
     csvwriter = csv.writer(csvfile)
     
     # Escrever os dados processados
