@@ -1,0 +1,9 @@
+#LOADED CLUSTER
+
+kubectl rabbitmq -n loaded perf-test rabbitmq-loaded --metrics-format compact -z 19800 -vr 4000:900 -vr 5000:1800 -vr 10000:1800 -vr 7000:1800 -vr 10000:1800 -vr 8000:1800 -vr 7000:1800 -vr 6000:1800 -vr 8000:1800 -vr 10000:1800 -vr 5000:1800
+
+
+#UNLOADED CLUSTER
+
+kubectl rabbitmq -n unloaded perf-test rabbitmq-unloaded --metrics-format compact -z 19800 -vr 4000:900 -vr 6000:18000
+
