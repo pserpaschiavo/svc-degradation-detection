@@ -1,7 +1,15 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dedicated
+---
+
 apiVersion: rabbitmq.com/v1beta1
 kind: RabbitmqCluster
 metadata:
-  name: rabbitmq
+  name: rabbitmq-dedicated
+  namespace: dedicated
+
 spec:
   replicas: 1
   resources:
