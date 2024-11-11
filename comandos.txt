@@ -1,3 +1,23 @@
+###TESTES PRELIMINARES
+
+#DEDICATED CLUSTER
+kubectl rabbitmq -n dedicated perf-test rabbitmq-dedicated --metrics-format compact -z 18000 -vr 1000:1800 -vr 2000:1800 -vr 3000:1800 -vr 4000:1800 -vr 5000:1800 -vr 6000:1800 -vr 7000:1800 -vr 8000:1800 -vr 9000:1800 -vr 10000:1800
+
+==========================================================================================================================================================================================================================================
+
+#LOADED CLUSTER
+
+kubectl rabbitmq -n loaded perf-test rabbitmq-loaded --metrics-format compact -z 14400 -vr 1000:1800 -vr 4000:1200 -vr 6000:1200 -vr 8000:1200 -vr 4000:1200 -vr 6000:1200 -vr 8000:1200 -vr 4000:1200 -vr 6000:1200 -vr 8000:1200
+
+
+#UNLOADED CLUSTER
+
+kubectl rabbitmq -n unloaded perf-test rabbitmq-unloaded --metrics-format compact -z 14400 -vr 1000:1800 -vr 2000:3600 -vr 4000:3600 -vr 6000:3600
+
+==========================================================================================================================================================================================================================================
+==========================================================================================================================================================================================================================================
+
+###TESTS DE CONCORRÊNCIA - Aleatório
 #LOADED CLUSTER
 
 kubectl rabbitmq -n loaded perf-test rabbitmq-loaded --metrics-format compact -z 19800 -vr 4000:900 -vr 5000:1800 -vr 10000:1800 -vr 7000:1800 -vr 10000:1800 -vr 8000:1800 -vr 7000:1800 -vr 6000:1800 -vr 8000:1800 -vr 10000:1800 -vr 5000:1800
@@ -7,7 +27,3 @@ kubectl rabbitmq -n loaded perf-test rabbitmq-loaded --metrics-format compact -z
 
 kubectl rabbitmq -n unloaded perf-test rabbitmq-unloaded --metrics-format compact -z 19800 -vr 4000:900 -vr 6000:18000
 
-
-
-#DEDICATED CLUSTER
-kubectl rabbitmq -n dedicated perf-test rabbitmq-dedicated --metrics-format compact -z 18000 -vr 1000:1800 -vr 2000:1800 -vr 3000:1800 -vr 4000:1800 -vr 5000:1800 -vr 6000:1800 -vr 7000:1800 -vr 8000:1800 -vr 9000:1800 -vr 10000:1800
