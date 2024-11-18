@@ -7,12 +7,12 @@ kubectl rabbitmq -n dedicated perf-test rabbitmq-dedicated --metrics-format comp
 
 #LOADED CLUSTER
 
-kubectl rabbitmq -n loaded perf-test rabbitmq-loaded --metrics-format compact -z 14400 -vr 1000:1800 -vr 4000:1200 -vr 6000:1200 -vr 8000:1200 -vr 4000:1200 -vr 6000:1200 -vr 8000:1200 -vr 4000:1200 -vr 6000:1200 -vr 8000:1200
+kubectl rabbitmq -n loaded perf-test rabbitmq-loaded --metrics-format compact -z 14400 -vr 3000:600 -vr 6000:600 -vr 9000:600
 
 
 #UNLOADED CLUSTER
 
-kubectl rabbitmq -n unloaded perf-test rabbitmq-unloaded --metrics-format compact -z 14400 -vr 1000:1800 -vr 2000:3600 -vr 4000:3600 -vr 6000:3600
+kubectl rabbitmq -n unloaded perf-test rabbitmq-unloaded --metrics-format compact -z 14400 -vr 1000:1800 -vr 2000:1800 -vr 3000:1800 -vr 4000:1800 -vr 5000:1800 -vr 6000:1800 -vr 7000:1800 -vr 8000:1800
 
 ==========================================================================================================================================================================================================================================
 ==========================================================================================================================================================================================================================================
