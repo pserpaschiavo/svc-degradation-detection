@@ -1,7 +1,7 @@
 import csv
 
 # Nome do arquivo de entrada
-input_file = './datasets/loaded-res.txt'
+input_file = '../results/unloaded-results.txt.bkp'
 
 # Ler os dados do arquivo .txt
 with open(input_file, 'r') as file:
@@ -11,14 +11,12 @@ with open(input_file, 'r') as file:
 processed_data = []
 for line in data:
     # Substituir barras por vírgulas, remover unidades de tempo e mensagens
-    line = line.replace('µs', '').strip()
-    line = line.replace('msg/s', '').strip()
-    line = line.replace('s', '').strip()
-    line = line.replace('/', ',').strip()
+    line = line.replace('µs', '').replace('msg/s', '').replace('s', '').replace('/',' ').strip()
+    # print(line)
     processed_data.append(line.split())
 
 # Salvar em um arquivo CSV
-with open('./datasets/loaded-res.csv', 'w', newline='') as csvfile:
+with open('./datasets/03-unloaded-res.csv', 'w', newline='') as csvfile:
     csvwriter = csv.writer(csvfile)
     
     # Escrever os dados processados
