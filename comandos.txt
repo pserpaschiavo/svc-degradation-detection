@@ -27,3 +27,16 @@ kubectl rabbitmq -n loaded perf-test rabbitmq-loaded --metrics-format compact -z
 
 kubectl rabbitmq -n unloaded perf-test rabbitmq-unloaded --metrics-format compact -z 19800 -vr 4000:900 -vr 6000:18000
 
+==========================================================================================================================================================================================================================================
+==========================================================================================================================================================================================================================================
+
+
+###TESTS DE CONCORRÊNCIA - Sazonal *** Tentar repetir o experimento 5 vezes.
+#LOADED CLUSTER
+
+kubectl rabbitmq -n loaded perf-test rabbitmq-loaded --metrics-format compact -z 14400 -vr 3000:900 -vr 7000:1800 -vr 5000:900 -vr 3000:900 -vr 8000:1800 -vr 5000:900 -vr 3000:900 -vr 8000:1800 -vr 6000:900 -vr 3000:900 -vr 7000:1800 -vr 5000:900
+
+
+#UNLOADED CLUSTER
+
+kubectl rabbitmq -n unloaded perf-test rabbitmq-unloaded --metrics-format compact -z 19800 -vr 5000:18000
