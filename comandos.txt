@@ -4,7 +4,7 @@
 kubectl rabbitmq -n dedicated perf-test rabbitmq-dedicated --metrics-format compact -z 18000 -vr 1000:1800 -vr 2000:1800 -vr 3000:1800 -vr 4000:1800 -vr 5000:1800 -vr 6000:1800 -vr 7000:1800 -vr 8000:1800 -vr 9000:1800 -vr 10000:1800
 
 ==========================================================================================================================================================================================================================================
-
+### CONCORRENTE - DELIMITAÇÃO
 #LOADED CLUSTER
 
 kubectl rabbitmq -n loaded perf-test rabbitmq-loaded --metrics-format compact -z 14400 -vr 3000:600 -vr 6000:600 -vr 9000:600
@@ -36,7 +36,10 @@ kubectl rabbitmq -n unloaded perf-test rabbitmq-unloaded --metrics-format compac
 
 kubectl rabbitmq -n loaded perf-test rabbitmq-loaded --metrics-format compact -z 14400 -vr 3000:900 -vr 7000:1800 -vr 5000:900 -vr 3000:900 -vr 8000:1800 -vr 5000:900 -vr 3000:900 -vr 8000:1800 -vr 6000:900 -vr 3000:900 -vr 7000:1800 -vr 5000:900
 
+k logs -f -n loaded jobs/perf-test >> loaded-concorrencia-long.txt 
 
 #UNLOADED CLUSTER
 
-kubectl rabbitmq -n unloaded perf-test rabbitmq-unloaded --metrics-format compact -z 19800 -vr 5000:18000
+kubectl rabbitmq -n unloaded perf-test rabbitmq-unloaded --metrics-format compact -z 14400 --rate 5000
+
+k logs -f -n loaded jobs/perf-test >> loaded-concorrencia-long.txt 
