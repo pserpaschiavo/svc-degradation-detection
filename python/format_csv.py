@@ -1,7 +1,7 @@
 import csv
 
 # Nome do arquivo de entrada
-input_file = '../results/unloaded-teste-concorrencia-deterministico.txt'
+input_file = '../results/unloaded-concorrencia-long.txt' 
 
 # Ler os dados do arquivo .txt
 with open(input_file, 'r') as file:
@@ -16,7 +16,7 @@ for line in data:
     processed_data.append(line.split())
 
 # Salvar em um arquivo CSV
-with open('./datasets/unloaded-teste-concorrencia-deterministico.csv', 'w', newline='') as csvfile:
+with open('./datasets/unloaded-concorrencia-long.csv', 'w', newline='') as csvfile:
     csvwriter = csv.writer(csvfile)
     
     # Escrever os dados processados
