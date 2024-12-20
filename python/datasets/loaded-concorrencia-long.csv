@@ -68722,11 +68722,6 @@ time,sent,received,latency_min,latency_median,latency_75th,latency_95th,latency_
 11126.001,3004,3003,110,195,258,994,23175
 11127.000,3005,3006,120,187,247,351,651
 11128.000,3003,3003,118,184,243,356,1234
-id:,"tet-155933-652,",tarting,conumer,#0
-id:,"tet-155933-652,",tarting,conumer,"#0,",channel,#0
-id:,"tet-155933-652,",tarting,producer,#0
-id:,"tet-155933-652,",tarting,producer,"#0,",channel,#0
-time,ent,received,conumer,latency
 1.001,3006,3006,140,1355,20417,24453,26597
 2.000,3005,3005,131,192,839,3270,5219
 3.000,3006,3005,107,318,1294,5759,11219
