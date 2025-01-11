@@ -34,10 +34,10 @@ kubectl rabbitmq -n unloaded perf-test rabbitmq-unloaded --metrics-format compac
 ###TESTS DE CONCORRÊNCIA - Sazonal *** Tentar repetir o experimento 5 vezes.
 
 1000 clients - 
-2000 clients - 
-3000 clients - 9/1/25 - em progresso
-4000 clients - 8/1/25 - em progresso - encerrado
-5000 clients - 7/1/25 - em progresso - encerrado 
+2000 clients - 10/1/25 - em progresso - (está na pasta HOME)
+3000 clients - 09/1/25 - em progresso - encerrado
+4000 clients - 08/1/25 - em progresso - encerrado
+5000 clients - 07/1/25 - em progresso - encerrado 
 6000 clients - 
 
 
@@ -45,10 +45,10 @@ kubectl rabbitmq -n unloaded perf-test rabbitmq-unloaded --metrics-format compac
 
 kubectl rabbitmq -n loaded perf-test rabbitmq-loaded --metrics-format compact -z 14400 -vr 2000:600 -vr 3000:600 -vr 4000:600 -vr 5000:600 -vr 6000:600 -vr 7000:600 
 
-k logs -f -n loaded jobs/perf-test >> loaded-concorrencia-3000.txt 
+k logs -f -n loaded jobs/perf-test >> loaded-concorrencia-2000.txt 
 
 #UNLOADED CLUSTER
 
 kubectl rabbitmq -n unloaded perf-test rabbitmq-unloaded --metrics-format compact -z 14400 --rate 3000
 
-k logs -f -n unloaded jobs/perf-test >> unloaded-concorrencia-3000.txt
+k logs -f -n unloaded jobs/perf-test >> unloaded-concorrencia-2000.txt
