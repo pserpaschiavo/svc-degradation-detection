@@ -1,8 +1,3 @@
-id: test-083059-912, starting consumer #0
-id: test-083059-912, starting consumer #0, channel #0
-id: test-083059-912, starting producer #0
-id: test-083059-912, starting producer #0, channel #0
-time               sent     received       consumer latency
 1.004s       2003 msg/s   2002 msg/s 183/18889/30062/41985/43415 µs
 2.000s       2002 msg/s   2002 msg/s 154/222/279/2131/7231 µs
 3.000s       2001 msg/s   2002 msg/s 147/269/457/4109/6427 µs
@@ -14403,7 +14398,3 @@ time               sent     received       consumer latency
 14398.000s   7048 msg/s   7418 msg/s 124/2137/10697/54253/64166 µs
 14399.001s   7048 msg/s   7064 msg/s 129/1503/3228/8833/21260 µs
 14400.000s   7041 msg/s   7047 msg/s 154/2837/6170/21196/40754 µs
-test stopped (Reached time limit)
-sending rate avg: 4511 msg/s
-receiving rate avg: 4511 msg/s
-consumer latency min/median/75th/95th/99th 141/1667/4200/19897/45658 µs
