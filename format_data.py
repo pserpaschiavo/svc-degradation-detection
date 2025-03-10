@@ -45,7 +45,7 @@ def process_data(file_path):
     return df
 
 # Caminho do arquivo .txt
-file_name = "teste"
+file_name = "unloaded-concorrencia-1000"
 input_file_path = f"/home/phil/Projects/svc-degradation-detection/results/testes_refeitos_jan_2025/txt/{file_name}.txt"  # Substitua pelo caminho do seu arquivo .txt
 output_file_path = f"/home/phil/Projects/svc-degradation-detection/results/testes_refeitos_jan_2025/csv/{file_name}.csv"  # Nome do arquivo CSV de saída
 
