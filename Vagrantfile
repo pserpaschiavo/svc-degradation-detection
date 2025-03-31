@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
     (1..1).each do |i|
         config.vm.define "master-#{i}" do |k8s|
-            k8s.vm.box = "ubuntu/focal64"
+            k8s.vm.box = "ubuntu/jammy64"
             k8s.vm.hostname = "master-#{i}"
             k8s.vm.network "private_network", ip: "172.89.0.1#{i}"
 
@@ -48,7 +48,7 @@ Vagrant.configure("2") do |config|
 
             k8s.vm.provider "virtualbox" do |vb|
               vb.gui = false
-              vb.cpus = 4
+              vb.cpus = 2
               vb.memory = "4096"
             
             end

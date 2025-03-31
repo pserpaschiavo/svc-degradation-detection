@@ -52,3 +52,4 @@ k logs -f -n loaded jobs/perf-test >> loaded-concorrencia-6000.txt
 kubectl rabbitmq -n unloaded perf-test rabbitmq-unloaded --metrics-format compact -z 14400 --rate 6000
 
 k logs -f -n unloaded jobs/perf-test >> unloaded-concorrencia-6000.txt
+
