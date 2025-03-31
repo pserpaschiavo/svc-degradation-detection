@@ -1,5 +1,6 @@
 setup-calico: 
-	@kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/tigera-operator.yaml
+	
+	@kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.29.3/manifests/tigera-operator.yaml
 	@sleep 10
 	@kubectl apply -f kubernetes/calico/custom-resources.yaml
 
