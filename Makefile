@@ -59,7 +59,7 @@ setup-lpp:
 	@kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.30/deploy/local-path-storage.yaml
 
 remove-k8s:
-	@kubeadm reset
+	@sudo kubeadm reset
 	@sudo apt-get purge -y kubeadm kubectl kubelet kubernetes-cni kube*
 	@sudo apt-get autoremove -y
 	@sudo rm -rf ~/.kube
