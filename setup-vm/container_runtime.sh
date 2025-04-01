@@ -33,7 +33,9 @@ EOF
 # Apply sysctl params without reboot:
 
 sudo sysctl --system
-sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables net.ipv4.ip_forward
+sysctl net.bridge.bridge-nf-call-ip6tables
+sysctl net.bridge.bridge-nf-call-iptables
+sysctl net.ipv4.ip_forward
 
 echo "Done!"
 

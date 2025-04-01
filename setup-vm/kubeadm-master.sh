@@ -8,6 +8,7 @@ echo "Get packages to use the k8s apt repository"
 
 sudo apt-get install -y apt-transport-https ca-certificates curl gpg
 
+sudo mkdir -p -m 755 /etc/apt/keyrings
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
 echo "Done!"
@@ -18,7 +19,6 @@ echo "Done!"
 echo "Overwriting any configuration in /etc/apt/sources.list.d/kubernetes.list"
 
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.32/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
-
 echo "Done!"
 
 echo "Updating apt package index, installing kubelet, kubeadm and kubectl and hold them"
