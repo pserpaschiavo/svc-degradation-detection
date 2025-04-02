@@ -1,67 +1,20 @@
-### DEDICADO - Limite de 10k msgs por fila, Limite de 10MB por fila, Descarta mensagens mais antigas
+### Exemplo de prompt
 
-kubectl rabbitmq -n dedicated perf-test \
-    rabbitmq-dedicated \
-    --metrics-format compact
-    --producers 1 \
-    --consumers 1 \
-    --variable-rate 100:300 \
-    --variable-rate 200:300 \
-    --variable-rate 500:300 \
-    --queue-args x-max-length=10000 \
-    --queue-args x-max-length-bytes=10485760 \ 
-    --queue-args overflow=drop-head \         
-    --size 32 \
-    -z 3600
+kubectl rabbitmq -n dedicated perf-test rabbitmq-dedicated --quorum-queue --queue qq \
+    --queue-args x-max-length=10000,x-max-length-bytes=10240000,x-overflow=drop-head \
+    --producers 1 --consumers 1 --producer-random-start-delay 5 --heartbeat-sender-threads 10 \
+    --variable-rate 3000:40 --variable-rate 4000:40 --variable-rate 5000:40 --variable-rate 2000:40 \
+    -s 32 -z 320 -mf compact
 
 
 
-###Cenário Sugerido:
+###Teste Feito - 2/4/2025
 
-    Duração total: 4 horas.
+1 para 1 (produtor - consumidor) - taxa constante = 2500 - 
 
-    Taxa de mensagens variável: 3000, 4000, 5000 e 6000 msg/s, alternando a cada 15 minutos.
-
-    Nº de produtores: 100.
-
-    Nº de consumidores: 100.
-
-    Distribuição equilibrada de mensagens entre filas.
-
-    Amostragem de métricas configurada para capturar variações sutis.
-
-    Uso de threads otimizadas para evitar sobrecarga desnecessária.
+kubectl rabbitmq -n dedicated perf-test rabbitmq-dedicated --quorum-queue --queue qq \
+    --queue-args x-max-length=10000,x-max-length-bytes=10240000,x-overflow=drop-head \
+    --producers 1 --consumers 1 --producer-random-start-delay 5 --heartbeat-sender-threads 10 \
+    --rate 1000 -s 64 -z -mf compact
 
 
-kubectl rabbitmq -n dedicated perf-test \
-    rabbitmq-dedicated \
-    --producers 100 --consumers 100 \
-    --queue-pattern 'test-queue-%d' --queue-pattern-from 1 --queue-pattern-to 4 \
-    --producer-random-start-delay 30 \
-    --variable-rate 3000:300 \
-    --variable-rate 4000:300 \
-    --variable-rate 5000:300 \
-    --variable-rate 2000:300 \
-    --heartbeat-sender-threads 5 \
-    --queue-args x-max-length=10000
-    --queue-args x-max-length-bytes=10485760 \
-    --queue-args overflow=drop-head \
-    --size 32 \
-    -z 3600 \
-    --metrics-format compact
-
-
-
-###Teste Feito - 1/4/2025
-
-kubectl rabbitmq -n dedicated perf-test rabbitmq-dedicated \
-    --producers 3 --consumers 2 \
-    --producer-random-start-delay 10 \
-    --variable-rate 3000:40 \
-    --variable-rate 4000:40 \
-    --variable-rate 5000:40 \
-    --variable-rate 2000:40 \
-    --heartbeat-sender-threads 5 \
-    -s 32 \
-    -z 20 \
-    -mf compact
