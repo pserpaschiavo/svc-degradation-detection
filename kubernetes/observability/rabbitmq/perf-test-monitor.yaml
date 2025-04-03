@@ -2,10 +2,11 @@ apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
   name: kubectl-perf-test
+  namespace: dedicated
 spec:
   podMetricsEndpoints:
   - interval: 5s
     port: prometheus
   selector:
     matchLabels:
-      app: perf-test
+      job-name: perf-test

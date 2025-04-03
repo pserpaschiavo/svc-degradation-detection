@@ -15,6 +15,6 @@ kubectl rabbitmq -n dedicated perf-test rabbitmq-dedicated --quorum-queue --queu
 kubectl rabbitmq -n dedicated perf-test rabbitmq-dedicated --quorum-queue --queue qq \
     --queue-args x-max-length=10000,x-max-length-bytes=10240000,x-overflow=drop-head \
     --producers 1 --consumers 1 --producer-random-start-delay 5 --heartbeat-sender-threads 10 \
-    --rate 1000 -s 64 -z -mf compact
+    --rate 1000 -s 64 -z 3600 -mf compact
 
 

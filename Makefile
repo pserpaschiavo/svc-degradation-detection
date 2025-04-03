@@ -1,5 +1,4 @@
 setup-calico: 
-	
 	@kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.29.3/manifests/tigera-operator.yaml
 	@sleep 10
 	@kubectl apply -f kubernetes/calico/custom-resources.yaml
@@ -7,7 +6,6 @@ setup-calico:
 remove-calico:
 	@kubectl delete -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/tigera-operator.yaml
 	@kubectl delete -f kubernetes/calico/custom-resources.yaml
-
 
 setup-flannel:
 	@kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
@@ -40,14 +38,6 @@ setup-cert-manager:
   		--namespace cert-manager \
   		--create-namespace \
   		--set crds.enabled=true
-
-setup-prometheus:
-	@helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-	@helm repo update
-	@helm install prometheus prometheus-community/kube-prometheus-stack \
-  		--namespace monitoring \
-  		--create-namespace \
-		--values kubernetes/prometheus/values.yaml
 
 setup-ebs:
 	@helm repo add openebs https://openebs.github.io/charts
