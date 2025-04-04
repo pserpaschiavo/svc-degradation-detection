@@ -1,0 +1,25 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: kubectl-perf-test
+  namespace: loaded
+spec:
+  podMetricsEndpoints:
+  - interval: 5s
+    port: prometheus
+  selector:
+    matchLabels:
+      job-name: perf-test
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: kubectl-perf-test
+  namespace: unloaded
+spec:
+  podMetricsEndpoints:
+  - interval: 5s
+    port: prometheus
+  selector:
+    matchLabels:
+      job-name: perf-test
